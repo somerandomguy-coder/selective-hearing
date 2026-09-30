@@ -1,0 +1,37 @@
+[project]
+name = "acousticlens"
+version = "0.1.0"
+description = "Real-Time Selective Hearing & Audio Gater"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "sounddevice>=0.5.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "torch>=2.1.0",
+    "torchaudio>=2.1.0",
+    "speechbrain>=1.0.0",
+    "textual>=0.70.0",
+    "rich>=13.7.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "websockets>=12.0",
+    "pydantic>=2.6.0",
+    "requests>=2.31.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+acousticlens = "main:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["engine*", "modes*", "ui*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
